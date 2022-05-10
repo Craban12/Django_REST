@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Author
-from .serializes import AuthorModelSerializer
+from .serializers import AuthorModelSerializer
 
 
 class AuthorViewSet(ModelViewSet):
