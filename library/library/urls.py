@@ -22,11 +22,11 @@ from todoapp.views import TodoViewSet, ProjectViewSet
 
 router = DefaultRouter()
 router.register('author', AuthorViewSet)
-router.register('user', UserViewSet)
-router.register('project', ProjectViewSet)
+router.register('project', ProjectViewSet, basename='project')
 router.register('todo', TodoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('UserViewSet/', UserViewSet.as_view({'get': 'list'})),
 ]
