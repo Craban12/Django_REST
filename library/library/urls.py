@@ -29,4 +29,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('UserViewSet/', UserViewSet.as_view({'get': 'list'})),
+    # path('TodoViewSet/', TodoViewSet.as_view({'get': 'list'})),
 ]

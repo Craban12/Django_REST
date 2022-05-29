@@ -3,7 +3,7 @@ from .models import Project, Todo
 from users.serializers import UserModelSerializer
 
 
-class ProjectModelSerializer(HyperlinkedModelSerializer):
+class ProjectModelSerializer(ModelSerializer):
     Contributors = UserModelSerializer(many=True)
 
     class Meta:
@@ -11,7 +11,8 @@ class ProjectModelSerializer(HyperlinkedModelSerializer):
         fields = '__all__'
 
 
-class TodoModelSerializer(HyperlinkedModelSerializer):
+
+class TodoModelSerializer(ModelSerializer):
     class Meta:
         model = Todo
         fields = '__all__'
