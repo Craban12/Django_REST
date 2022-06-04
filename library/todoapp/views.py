@@ -16,16 +16,16 @@ class TodoPaginator(LimitOffsetPagination):
 
 
 class ProjectViewSet(ModelViewSet):
-    renderer_classes = (JSONRenderer, AdminRenderer,)
+    # renderer_classes = (JSONRenderer, AdminRenderer,)
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
-    pagination_class = ProjectPaginator
+    # pagination_class = ProjectPaginator
     filterset_fields = ['name_project']
 
 
 class TodoViewSet(ModelViewSet):
-    renderer_classes = (JSONRenderer, AdminRenderer,)
+    # renderer_classes = (JSONRenderer, AdminRenderer,)
     queryset = Todo.objects.all()
-    pagination_class = TodoPaginator
+    # pagination_class = TodoPaginator
     serializer_class = TodoModelSerializer
     filterset_fields = ['name_project']

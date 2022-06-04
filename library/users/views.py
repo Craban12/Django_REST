@@ -8,6 +8,6 @@ from .serializers import UserModelSerializer
 
 
 class UserViewSet(ReadOnlyModelViewSet):
-    renderer_classes = (JSONRenderer, AdminRenderer,)
+    renderer_classes = (JSONRenderer,)
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
