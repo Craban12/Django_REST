@@ -1,4 +1,5 @@
 from rest_framework.pagination import LimitOffsetPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer, AdminRenderer
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -16,16 +17,17 @@ class TodoPaginator(LimitOffsetPagination):
 
 
 class ProjectViewSet(ModelViewSet):
-    # renderer_classes = (JSONRenderer, AdminRenderer,)
+    renderer_classes = (JSONRenderer, AdminRenderer,)
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
-    # pagination_class = ProjectPaginator
+    pagination_class = ProjectPaginator
     filterset_fields = ['name_project']
 
 
 class TodoViewSet(ModelViewSet):
-    # renderer_classes = (JSONRenderer, AdminRenderer,)
+    renderer_classes = (JSONRenderer, AdminRenderer,)
     queryset = Todo.objects.all()
-    # pagination_class = TodoPaginator
+    pagination_class = TodoPaginator
     serializer_class = TodoModelSerializer
-    filterset_fields = ['name_project']
+    filterset_fields = ['created_at']
+    permission_classes = {IsAuthenticated}
