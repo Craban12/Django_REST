@@ -12,4 +12,4 @@ class UserViewSet(ReadOnlyModelViewSet):
     renderer_classes = (JSONRenderer, AdminRenderer)
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
