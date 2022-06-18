@@ -30,4 +30,4 @@ class TodoViewSet(ModelViewSet):
     pagination_class = TodoPaginator
     serializer_class = TodoModelSerializer
     filterset_fields = ['created_at']
-    permission_classes = {IsAuthenticated}
+    # permission_classes = {IsAuthenticated}

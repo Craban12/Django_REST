@@ -5,7 +5,7 @@ import './App.css';
 import AuthorList from './components/User.js'
 import ProjectList from "./components/Project";
 import TodoList from "./components/ToDo";
-import {HashRouter, Route, Link, Switch, BrowserRouter} from "react-router-dom";
+import { Route, Link, Switch, BrowserRouter} from "react-router-dom";
 import LoginForm from "./components/Auth";
 import Cookies from "universal-cookie/es6";
 
@@ -53,12 +53,12 @@ class App extends React.Component {
       axios.post('http://127.0.0.1:8000/api-token/', {username:login, password:password})
           .then(response => {
               this.set_token(response.data['token'])
-          }).catch(error => console.log('******************' + error + "********************"))
+          }).catch(error =>  alert('Неверный логин или пароль:' + error))
   }
 
   get_headers() {
       let headers = {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
       }
       if (this.is_aunthenticated())
       {
@@ -68,6 +68,7 @@ class App extends React.Component {
   }
 
   load_data() {
+
     const headers = this.get_headers()
     axios.get('http://127.0.0.1:8000/UserViewSet', {headers})
         .then(response => {
