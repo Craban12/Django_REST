@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users',
     'todoapp',
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -147,7 +148,7 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.AdminRenderer',
     ],
-
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
 #     'DEFAULT_FILTER_BACKENDS': [
 #         'django_filters.rest_framework.DjangoFilterBackend'
 #     ],
