@@ -5,7 +5,7 @@ from rest_framework.renderers import JSONRenderer, AdminRenderer
 
 
 from .models import User
-from .serializers import UserModelSerializer
+from .serializers import UserModelSerializer, UserModelstandard
 
 
 class UserViewSet(ReadOnlyModelViewSet):
@@ -13,3 +13,8 @@ class UserViewSet(ReadOnlyModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
     # permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.version == '2.0':
+            return UserModelstandard
+        return UserModelSerializer

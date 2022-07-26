@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'users',
     'todoapp',
     'django_filters',
+    'drf_yasg',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -147,10 +149,14 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.AdminRenderer',
     ],
-
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.QueryParameterVersioning',
 #     'DEFAULT_FILTER_BACKENDS': [
 #         'django_filters.rest_framework.DjangoFilterBackend'
 #     ],
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 100
+}
+
+GRAPHENE = {
+    "SCHEMA": "library.schema.schema"
 }
