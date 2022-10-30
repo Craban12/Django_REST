@@ -21,6 +21,7 @@ from mainapp.views import AuthorViewSet
 from users.views import UserViewSet
 from todoapp.views import TodoViewSet, ProjectViewSet
 from rest_framework.authtoken.views import obtain_auth_token
+from graphene_django.views import GraphQLView
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -46,6 +47,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api-token/', obtain_auth_token),
+    path('graphql/', GraphQLView.as_view(graphiql=True)),
     path('UserViewSet/', UserViewSet.as_view({'get': 'list'})),
     # path('TodoViewSet/', TodoViewSet.as_view({'get': 'list'})),
 
